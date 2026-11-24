@@ -1,4 +1,4 @@
-# Plan 1 · First version (this run: T03)
+# Plan 1 · First version (this run: T04)
 
 **How to build it** (from `.studio/plan.md`)
 What kind of thing this is: Records app. Pages behind the hosted sign-in page. Bookmarks, folders and tags are records that belong to the person who made them, and access rules on those records keep one person's records out of another's. Every label comes in English, Bengali and German, and the language switch changes all of them.
@@ -31,5 +31,9 @@ What kind of thing this is: Records app. Pages behind the hosted sign-in page. B
 - [x] Show the no-folders, saved and bad-link states (`blocks-data-gateway-crud`)
 - [x] Check and build app
 
-### Planned for later steps (not this run)
-- T04 Read the list with folders and tags, and switch language (LS-01, LG-01)
+### T04 Read the list with folders and tags, and switch language (LS-01, LG-01)
+- [x] List bookmarks newest first with folder and tags (`blocks-data-gateway-crud`)
+- [x] Narrow the list to a folder and read its empty message (`blocks-data-gateway-crud`)
+- [x] Switch language from the top bar and keep the choice (`blocks-localization-implementation`)
+- [x] Push every screen's words in Bengali and German (`blocks-localization-configuration`)
+- [x] Check and build app

@@ -34,6 +34,7 @@ export const DEFAULT_WORDS = {
   "bookmarks.folders": "Folders",
   "bookmarks.tags": "Tags",
   "bookmarks.bandNote": "Saved newest first. Open a folder on the right to narrow the list.",
+  "bookmarks.savedItems": "{count} in this list",
   "bookmarks.savedCount": "{count} saved",
   "bookmarks.newBookmark": "New bookmark",
   "bookmarks.newFolder": "New folder",

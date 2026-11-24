@@ -100,5 +100,6 @@
   "newBookmark.savedOn": "Saved on",
   "newBookmark.folderNote": "Need a new place for it?",
   "newBookmark.folderNoteLink": "Make a folder on your bookmarks",
-  "newBookmark.folderNoteEnd": "first."
+  "newBookmark.folderNoteEnd": "first.",
+  "bookmarks.savedItems": "{count} in this list"
 }

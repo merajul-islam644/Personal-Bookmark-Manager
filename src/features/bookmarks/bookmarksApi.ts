@@ -26,12 +26,6 @@ function itemsOf(response: unknown, queryName: string): Record<string, unknown>[
   return items.filter((item): item is Record<string, unknown> => Boolean(item) && typeof item === "object");
 }
 
-export function savedAt(bookmark: Bookmark): number {
-  const raw = bookmark.savedOn || bookmark.createdDate;
-  const time = raw ? Date.parse(raw) : NaN;
-  return Number.isNaN(time) ? 0 : time;
-}
-
 export async function listBookmarks(): Promise<Bookmark[]> {
   const response = await bookmarksCollection().list({ pageNo: 1, pageSize: 500, sort: { createdDate: -1 } });
   return itemsOf(response, "getBookmarks") as Bookmark[];

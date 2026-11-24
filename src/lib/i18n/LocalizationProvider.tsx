@@ -1,10 +1,10 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useQueries } from "@tanstack/react-query";
 import type { ReactNode } from "react";
 import { blocksClient } from "../blocks/client";
 import { defaultDictionary } from "./dictionary";
 import type { TranslationKey } from "./dictionary";
-import { APP_LANGUAGES, MODULES } from "./languages";
+import { LANGUAGE_KEY, MODULES, storedLanguage } from "./languages";
 
 type Dictionary = Record<string, string>;
 type LocalizationValue = {
@@ -14,13 +14,8 @@ type LocalizationValue = {
 };
 
 const LocalizationContext = createContext<LocalizationValue | undefined>(undefined);
-const LANGUAGE_KEY = "bookmark-manager:language";
-
 function readLanguage(): string {
-  const stored = localStorage.getItem(LANGUAGE_KEY);
-  if (stored && APP_LANGUAGES.some((entry) => entry.code === stored)) return stored;
-  const browser = (navigator.language || "en").slice(0, 2);
-  return APP_LANGUAGES.some((entry) => entry.code === browser) ? browser : "en";
+  return storedLanguage(localStorage.getItem(LANGUAGE_KEY), navigator.language);
 }
 
 function fill(text: string, vars?: Record<string, string | number>): string {
@@ -30,6 +25,11 @@ function fill(text: string, vars?: Record<string, string | number>): string {
 
 export function LocalizationProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState(readLanguage);
+
+  // The page's own language follows the choice, so screen readers and the browser agree with the words shown.
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   function setLanguage(next: string) {
     localStorage.setItem(LANGUAGE_KEY, next);

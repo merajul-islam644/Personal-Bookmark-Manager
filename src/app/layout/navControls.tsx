@@ -2,9 +2,7 @@ import { useEffect, useRef } from "react";
 import type { MouseEvent } from "react";
 import { useColourMode } from "../theme/useColourMode";
 import { useT } from "../../lib/i18n/LocalizationProvider";
-import { APP_LANGUAGES } from "../../lib/i18n/languages";
-
-const SHORT: Record<string, string> = { bn: "বাং", de: "DE", en: "EN" };
+import { APP_LANGUAGES, shortNameOf } from "../../lib/i18n/languages";
 
 export function useDsMenus() {
   const scope = useRef<HTMLDivElement>(null);
@@ -94,7 +92,7 @@ export function LanguageSwitch({ className }: { className?: string }) {
           <circle cx="12" cy="12" r="9" />
           <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
         </svg>
-        <span>{SHORT[language] ?? language.toUpperCase()}</span>
+        <span>{shortNameOf(language)}</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
           <path d="m6 9 6 6 6-6" />
         </svg>

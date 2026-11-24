@@ -100,5 +100,6 @@
   "newBookmark.savedOn": "সেভ হয়েছে",
   "newBookmark.folderNote": "এর জন্য নতুন জায়গা দরকার?",
   "newBookmark.folderNoteLink": "আপনার বুকমার্কে একটি ফোল্ডার তৈরি করুন",
-  "newBookmark.folderNoteEnd": "প্রথমে।"
+  "newBookmark.folderNoteEnd": "প্রথমে।",
+  "bookmarks.savedItems": "এই তালিকায় {count}টি"
 }

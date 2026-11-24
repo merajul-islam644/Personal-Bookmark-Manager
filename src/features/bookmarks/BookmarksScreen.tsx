@@ -8,7 +8,9 @@ import { useQueryClient } from "@tanstack/react-query";
 import { HeaderPart } from "../../app/layout/HeaderPart";
 import { blocksClient } from "../../lib/blocks/client";
 import { useT } from "../../lib/i18n/LocalizationProvider";
-import { savedAt, useBookmarks, useFolders } from "./bookmarksApi";
+import { useBookmarks, useFolders } from "./bookmarksApi";
+import { countInFolder, folderIsOwn, inFolder, newestFirst, tagCount } from "./listRules";
+import { localeOf } from "../../lib/i18n/languages";
 import { createFolderRecord, folderNameTaken } from "./folderApi";
 import type { Bookmark } from "./bookmarksApi";
 import "./BookmarksScreen.css";
@@ -26,13 +28,11 @@ export type BookmarksScreenProps = {
   notice?: string;
 };
 
-const DATE_LOCALES: Record<string, string> = { bn: "bn-BD", de: "de-DE", en: "en-GB" };
-
 function formatSaved(raw: string | undefined, language: string): string {
   if (!raw) return "";
   const time = Date.parse(raw);
   if (Number.isNaN(time)) return "";
-  return new Date(time).toLocaleDateString(DATE_LOCALES[language] ?? "en-GB", { day: "2-digit", month: "short", year: "numeric" });
+  return new Date(time).toLocaleDateString(localeOf(language), { day: "2-digit", month: "short", year: "numeric" });
 }
 
 function recordId(record: { itemId?: string; id?: string }): string {
@@ -53,12 +53,12 @@ export function BookmarksScreen({ situation, onNavigate, activeFolder, notice }:
   const [folderError, setFolderError] = useState<string>();
   const [creating, setCreating] = useState(false);
 
-  const bookmarks = [...(bookmarksQuery.data ?? [])].sort((a, b) => savedAt(b) - savedAt(a));
+  const bookmarks = newestFirst(bookmarksQuery.data ?? []);
   const folders = foldersQuery.data ?? [];
-  const tagCount = new Set(bookmarks.flatMap((bookmark) => bookmark.tags ?? [])).size;
-  const shown = activeFolder ? bookmarks.filter((bookmark) => bookmark.folderName === activeFolder) : bookmarks;
-  const countIn = (name: string) => bookmarks.filter((bookmark) => bookmark.folderName === name).length;
-  const activeExists = !activeFolder || folders.some((folder) => folder.name === activeFolder);
+  const tags = tagCount(bookmarks);
+  const shown = inFolder(bookmarks, activeFolder);
+  const countIn = (name: string) => countInFolder(bookmarks, name);
+  const activeExists = folderIsOwn(folders, activeFolder);
 
   const resolved: BookmarksScreenSituation =
     situation ?? (bookmarksQuery.isLoading || foldersQuery.isLoading ? "loading" : bookmarks.length === 0 ? "empty" : "normal");
@@ -233,7 +233,7 @@ export function BookmarksScreen({ situation, onNavigate, activeFolder, notice }:
                   <div className="bm-hero-divider" aria-hidden="true" />
                   <div>
                     <div className="bm-hero-label">{t("bookmarks.tags")}</div>
-                    <div className="bm-hero-num">{tagCount}</div>
+                    <div className="bm-hero-num">{tags}</div>
                   </div>
                   <span className="ds-spacer" />
                   <div className="ds-muted" style={{ fontSize: "13px", maxWidth: "30ch" }}>{t("bookmarks.bandNote")}</div>
@@ -243,7 +243,7 @@ export function BookmarksScreen({ situation, onNavigate, activeFolder, notice }:
                 <div>
                   <div className="bm-listhead">
                     <h2>{activeFolder ?? t("bookmarks.allBookmarks")}</h2>
-                    <span className="bm-listcount">{t("bookmarks.savedCount", { count: shown.length })}</span>
+                    <span className="bm-listcount">{t("bookmarks.savedItems", { count: shown.length })}</span>
                   </div>
                   <div className="ds-card" style={{ padding: "0", overflow: "hidden" }}>
                     <div className="bm-list">

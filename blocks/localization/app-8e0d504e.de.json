@@ -100,5 +100,6 @@
   "newBookmark.savedOn": "Gespeichert am",
   "newBookmark.folderNote": "Brauchst du einen neuen Ort dafür?",
   "newBookmark.folderNoteLink": "Erstelle einen Ordner in deinen Lesezeichen",
-  "newBookmark.folderNoteEnd": "zuerst."
+  "newBookmark.folderNoteEnd": "zuerst.",
+  "bookmarks.savedItems": "{count} in dieser Liste"
 }

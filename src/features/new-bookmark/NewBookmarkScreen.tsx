@@ -8,6 +8,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { HeaderPart } from "../../app/layout/HeaderPart";
 import { blocksClient } from "../../lib/blocks/client";
 import { useT } from "../../lib/i18n/LocalizationProvider";
+import { localeOf } from "../../lib/i18n/languages";
 import { useCurrentUser, userDisplayName } from "../account/useCurrentUser";
 import { useFolders } from "../bookmarks/bookmarksApi";
 import { saveBookmark, siteNameOf } from "./saveBookmark";
@@ -119,7 +120,7 @@ export function NewBookmarkScreen({ situation, onNavigate }: { situation?: NewBo
   }
 
   const shown = saved;
-  const savedDate = new Date().toLocaleString(language === "bn" ? "bn-BD" : language === "de" ? "de-DE" : "en-GB", {
+  const savedDate = new Date().toLocaleString(localeOf(language), {
     day: "2-digit",
     hour: "2-digit",
     minute: "2-digit",
