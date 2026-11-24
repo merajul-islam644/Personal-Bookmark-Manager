@@ -1,0 +1,72 @@
+/* Ported by Studio from the agreed design .studio/designs/screens/bookmarks.html: its own CSS, as drawn, applied only inside
+   this screen. Change nothing here; the build flattens the wrapper for every browser. */
+:where(.studio-screen-bookmarks) {
+  /* Page rhythm */
+  .bm-page { padding-top: calc(24px * var(--space-scale, 1)); padding-bottom: calc(64px * var(--space-scale, 1)); }
+  .bm-head { margin-bottom: calc(24px * var(--space-scale, 1)); }
+  .bm-title { font-family: var(--font-heading); font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.025em; line-height: 1.08; margin: 0; }
+  .bm-sub { font-size: 15px; margin: calc(8px * var(--space-scale, 1)) 0 0; color: hsl(var(--muted-foreground)); max-width: 46ch; }
+  .bm-eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: hsl(var(--primary-text)); }
+
+  /* Layout: list + folder rail */
+  .bm-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: calc(32px * var(--space-scale, 1)); align-items: start; }
+  .bm-rail { display: flex; flex-direction: column; gap: calc(16px * var(--space-scale, 1)); position: sticky; top: 16px; }
+  @media (max-width: 980px) {
+    .bm-layout { grid-template-columns: minmax(0, 1fr); }
+    .bm-rail { position: static; order: 2; }
+  }
+
+  /* Folder rail card */
+  .bm-rail-card { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: var(--card-radius, var(--radius)); box-shadow: var(--shadow); padding: calc(16px * var(--space-scale, 1)); }
+  .bm-rail-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: calc(12px * var(--space-scale, 1)); }
+  .bm-rail-title { font-family: var(--font-heading); font-size: 14px; font-weight: 700; margin: 0; letter-spacing: 0.02em; }
+  .bm-folders { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+  .bm-folder { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 10px; border: 0; border-radius: var(--radius-button, var(--radius)); background: none; color: hsl(var(--foreground)); font: inherit; font-size: 14px; text-align: left; cursor: pointer; min-height: 40px; }
+  .bm-folder:hover { background: hsl(var(--muted)); }
+  .bm-folder svg { flex: none; width: 17px; height: 17px; color: hsl(var(--muted-foreground)); }
+  .bm-folder-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bm-count { font-variant-numeric: tabular-nums; font-size: 13px; color: hsl(var(--muted-foreground)); }
+  .bm-folder.is-active { background: hsl(var(--primary) / 0.1); color: hsl(var(--primary-text)); font-weight: 600; }
+  .bm-folder.is-active svg { color: hsl(var(--primary-text)); }
+  .bm-folder.is-active .bm-count { color: hsl(var(--primary-text)); }
+
+  /* New folder mini-form */
+  .bm-newfolder { border-top: 1px solid hsl(var(--border)); margin-top: calc(12px * var(--space-scale, 1)); padding-top: calc(12px * var(--space-scale, 1)); display: flex; flex-direction: column; gap: calc(8px * var(--space-scale, 1)); }
+  .bm-newfolder .ds-btn { width: 100%; }
+
+  /* Summary band */
+  .bm-band { background: hsl(var(--primary) / 0.05); border: 1px solid hsl(var(--border)); border-radius: var(--card-radius, var(--radius)); padding: calc(24px * var(--space-scale, 1)); }
+  .dark & .bm-band { background: hsl(var(--primary) / 0.12); }
+
+  /* Bookmark rows */
+  .bm-list { display: flex; flex-direction: column; }
+  .bm-item { display: flex; align-items: flex-start; gap: 14px; padding: calc(16px * var(--space-scale, 1)) calc(16px * var(--space-scale, 1)); border-bottom: 1px solid hsl(var(--border)); }
+  .bm-item:last-child { border-bottom: 0; }
+  .bm-thumb { flex: none; width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: hsl(var(--primary) / 0.09); color: hsl(var(--primary-text)); }
+  .dark & .bm-thumb { background: hsl(var(--primary) / 0.2); }
+  .bm-thumb svg { width: 18px; height: 18px; }
+  .bm-body { flex: 1; min-width: 0; }
+  .bm-link { font-family: var(--font-heading); font-size: 16px; font-weight: 600; color: hsl(var(--foreground)); text-decoration: none; line-height: 1.3; overflow-wrap: anywhere; }
+  .bm-link:hover { color: hsl(var(--primary-text)); text-decoration: underline; }
+  .bm-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 5px; font-size: 13px; color: hsl(var(--muted-foreground)); }
+  .bm-site { font-weight: 500; }
+  .bm-folder-tag { display: inline-flex; align-items: center; gap: 5px; }
+  .bm-folder-tag svg { width: 13px; height: 13px; }
+  .bm-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .bm-tag { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: hsl(var(--muted)); color: hsl(var(--muted-foreground)); font-weight: 500; }
+  .bm-when { flex: none; font-size: 12px; color: hsl(var(--muted-foreground)); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  /* Small list head */
+  .bm-listhead { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: calc(12px * var(--space-scale, 1)); }
+  .bm-listhead h2 { margin: 0; font-family: var(--font-heading); font-size: 18px; letter-spacing: -0.01em; }
+  .bm-listcount { font-size: 13px; color: hsl(var(--muted-foreground)); }
+
+  /* Summary band figures */
+  .bm-hero-inner { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .bm-hero-num { font-family: var(--font-heading); font-size: 34px; font-weight: 700; line-height: 1; color: hsl(var(--primary-text)); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .bm-hero-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.07em; color: hsl(var(--muted-foreground)); font-weight: 600; }
+  .bm-hero-divider { width: 1px; align-self: stretch; background: hsl(var(--border)); }
+  @media (max-width: 640px) { .bm-hero-divider { display: none; } }
+
+  .bm-saved { margin-bottom: calc(16px * var(--space-scale, 1)); }
+}

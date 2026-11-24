@@ -1,0 +1,133 @@
+/* Ported by Studio from the agreed design .studio/designs/screens/new-bookmark.html: its own CSS, as drawn, applied only inside
+   this screen. Change nothing here; the build flattens the wrapper for every browser. */
+:where(.studio-screen-new-bookmark) {
+  .nb-head {
+    background:
+      radial-gradient(120% 160% at 92% -30%, hsl(var(--primary) / 0.10), transparent 62%),
+      linear-gradient(180deg, hsl(var(--muted) / 0.55), transparent 100%);
+    border-bottom: 1px solid hsl(var(--border));
+    position: relative;
+    overflow: visible;
+  }
+  .nb-head .ds-page { padding-top: calc(32px * var(--space-scale, 1)); padding-bottom: calc(28px * var(--space-scale, 1)); position: relative; }
+  .nb-deco-ring {
+    top: calc(-64px * var(--space-scale, 1));
+    right: calc(-40px * var(--space-scale, 1));
+    width: calc(260px * var(--space-scale, 1));
+    height: calc(260px * var(--space-scale, 1));
+    border-radius: 50%;
+    border: 1px solid hsl(var(--primary) / 0.22);
+    pointer-events: none;
+  }
+  .nb-deco-dot {
+    top: calc(28px * var(--space-scale, 1));
+    right: calc(180px * var(--space-scale, 1));
+    width: calc(10px * var(--space-scale, 1));
+    height: calc(10px * var(--space-scale, 1));
+    border-radius: 50%;
+    background: hsl(var(--primary) / 0.35);
+    pointer-events: none;
+  }
+  .nb-body { padding-top: calc(32px * var(--space-scale, 1)); padding-bottom: calc(64px * var(--space-scale, 1)); }
+  .nb-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+    gap: calc(32px * var(--space-scale, 1));
+    align-items: start;
+  }
+  .nb-form-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--card-radius, var(--radius));
+    box-shadow: var(--shadow);
+    padding: calc(24px * var(--space-scale, 1));
+  }
+  .nb-form-card .ds-form { max-width: none; }
+  .nb-side { display: grid; gap: calc(16px * var(--space-scale, 1)); }
+  .nb-side-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--card-radius, var(--radius));
+    box-shadow: var(--shadow);
+    padding: calc(20px * var(--space-scale, 1));
+  }
+  .nb-chip-row { display: flex; flex-wrap: wrap; gap: calc(8px * var(--space-scale, 1)); margin-top: calc(12px * var(--space-scale, 1)); }
+  .nb-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(6px * var(--space-scale, 1));
+    min-height: 32px;
+    padding: 0 calc(10px * var(--space-scale, 1));
+    border-radius: 999px;
+    background: hsl(var(--primary) / 0.10);
+    color: hsl(var(--primary-text));
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .nb-chip button {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    margin-right: calc(-4px * var(--space-scale, 1));
+    border: 0;
+    border-radius: 999px;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .nb-chip button:hover { background: hsl(var(--primary) / 0.16); }
+  .nb-chip svg { width: 13px; height: 13px; }
+  .nb-reading {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(8px * var(--space-scale, 1));
+    font-size: 13px;
+    color: hsl(var(--muted-foreground));
+    margin-top: calc(8px * var(--space-scale, 1));
+  }
+  .nb-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: hsl(var(--primary));
+    animation: none;
+  }
+  .nb-folder-note {
+    display: flex;
+    gap: calc(10px * var(--space-scale, 1));
+    align-items: flex-start;
+    padding: calc(12px * var(--space-scale, 1));
+    border-radius: var(--radius);
+    background: hsl(var(--muted) / 0.7);
+    font-size: 13px;
+    color: hsl(var(--muted-foreground));
+    margin-top: calc(8px * var(--space-scale, 1));
+  }
+  .nb-folder-note svg { flex: none; width: 16px; height: 16px; margin-top: 1px; }
+  .nb-folder-note a { color: hsl(var(--primary-text)); font-weight: 600; text-decoration: none; }
+  .nb-folder-note a:hover { text-decoration: underline; }
+  .nb-facts { display: grid; gap: calc(12px * var(--space-scale, 1)); margin: 0; }
+  .nb-facts div { display: grid; gap: 2px; }
+  .nb-facts dt { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: hsl(var(--muted-foreground)); font-weight: 600; }
+  .nb-facts dd { margin: 0; font-size: 14px; color: hsl(var(--foreground)); }
+  .nb-steps { display: grid; gap: calc(12px * var(--space-scale, 1)); margin: 0; padding: 0; list-style: none; }
+  .nb-steps li { display: flex; gap: calc(10px * var(--space-scale, 1)); align-items: flex-start; font-size: 14px; }
+  .nb-step-num {
+    flex: none;
+    width: 22px; height: 22px;
+    border-radius: 999px;
+    display: grid; place-items: center;
+    background: hsl(var(--primary) / 0.12);
+    color: hsl(var(--primary-text));
+    font-size: 12px; font-weight: 700;
+  }
+  .nb-step-on .nb-step-num { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+  @media (max-width: 900px) {
+    .nb-layout { grid-template-columns: minmax(0, 1fr); }
+    .nb-side { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  }
+  @media (max-width: 560px) {
+    .nb-form-card { padding: calc(16px * var(--space-scale, 1)); }
+    .nb-deco-dot { display: none; }
+  }
+}

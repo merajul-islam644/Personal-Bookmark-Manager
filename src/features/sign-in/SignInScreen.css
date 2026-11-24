@@ -1,0 +1,183 @@
+/* Ported by Studio from the agreed design .studio/designs/screens/sign-in.html: its own CSS, as drawn, applied only inside
+   this screen. Change nothing here; the build flattens the wrapper for every browser. */
+:where(.studio-screen-sign-in) {
+  .si-root {
+    min-height: 100vh;
+    background:
+      radial-gradient(1200px 520px at 82% -12%, hsl(var(--primary) / 0.10), transparent 62%),
+      hsl(var(--background));
+  }
+  .si-bar {
+    display: flex;
+    align-items: center;
+    gap: calc(12px * var(--space-scale, 1));
+  }
+  .si-bar .ds-brand { height: 30px; width: auto; }
+  .si-switches {
+    display: flex;
+    align-items: center;
+    gap: calc(8px * var(--space-scale, 1));
+    margin-left: auto;
+  }
+  .si-main {
+    position: relative;
+    padding-top: calc(24px * var(--space-scale, 1));
+    padding-bottom: calc(64px * var(--space-scale, 1));
+  }
+  .si-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: calc(48px * var(--space-scale, 1));
+    align-items: center;
+    padding-top: calc(32px * var(--space-scale, 1));
+  }
+  .si-promise .ds-display {
+    margin: calc(12px * var(--space-scale, 1)) 0 0;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    max-width: 12ch;
+  }
+  .si-lede {
+    margin: calc(16px * var(--space-scale, 1)) 0 0;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 42ch;
+    color: hsl(var(--muted-foreground));
+  }
+  .si-claim {
+    margin: calc(32px * var(--space-scale, 1)) 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(8px * var(--space-scale, 1));
+    padding: 0;
+    list-style: none;
+  }
+  .si-claim li {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(8px * var(--space-scale, 1));
+    padding: calc(8px * var(--space-scale, 1)) calc(12px * var(--space-scale, 1));
+    border: 1px solid hsl(var(--border));
+    border-radius: 999px;
+    background: hsl(var(--card));
+    color: hsl(var(--foreground));
+    font-size: 14px;
+    min-height: 40px;
+  }
+  .si-claim svg { width: 16px; height: 16px; color: hsl(var(--primary-text)); flex: none; }
+
+  .si-panel {
+    position: relative;
+    border-radius: var(--card-radius, var(--radius));
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card));
+    box-shadow: var(--shadow);
+    overflow: visible;
+  }
+  .si-panel-top {
+    display: flex;
+    align-items: center;
+    gap: calc(8px * var(--space-scale, 1));
+    padding: calc(16px * var(--space-scale, 1)) calc(24px * var(--space-scale, 1));
+    border-bottom: 1px solid hsl(var(--border));
+    color: hsl(var(--muted-foreground));
+    font-size: 13px;
+  }
+  .si-dot { width: 8px; height: 8px; border-radius: 999px; background: hsl(var(--success)); flex: none; }
+  .si-panel-body {
+    padding: calc(24px * var(--space-scale, 1));
+    display: grid;
+    gap: calc(12px * var(--space-scale, 1));
+  }
+  .si-row {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    gap: calc(12px * var(--space-scale, 1));
+    align-items: center;
+    padding: calc(12px * var(--space-scale, 1));
+    border: 1px solid hsl(var(--border));
+    border-radius: calc(var(--radius) - 2px);
+    background: hsl(var(--background));
+  }
+  .si-thumb {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: hsl(var(--primary) / 0.10);
+    color: hsl(var(--primary-text));
+  }
+  .si-thumb svg { width: 18px; height: 18px; }
+  .si-row-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: hsl(var(--foreground));
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+  .si-row-meta {
+    font-size: 13px;
+    color: hsl(var(--muted-foreground));
+    margin-top: 2px;
+  }
+  .si-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(4px * var(--space-scale, 1));
+    margin-top: calc(8px * var(--space-scale, 1));
+  }
+  .si-tag {
+    font-size: 12px;
+    padding: 2px calc(8px * var(--space-scale, 1));
+    border-radius: 999px;
+    background: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+    white-space: nowrap;
+  }
+  .si-folders {
+    display: grid;
+    gap: calc(4px * var(--space-scale, 1));
+    padding-top: calc(4px * var(--space-scale, 1));
+    border-top: 1px dashed hsl(var(--border));
+    margin-top: calc(4px * var(--space-scale, 1));
+  }
+  .si-folder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(8px * var(--space-scale, 1));
+    padding: calc(8px * var(--space-scale, 1)) 0;
+    font-size: 14px;
+    color: hsl(var(--foreground));
+  }
+  .si-folder svg { width: 16px; height: 16px; color: hsl(var(--muted-foreground)); }
+  .si-folder span:first-child { display: inline-flex; align-items: center; gap: calc(8px * var(--space-scale, 1)); }
+  .si-count {
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    color: hsl(var(--muted-foreground));
+  }
+  .si-action { margin-top: calc(8px * var(--space-scale, 1)); }
+  .si-action .ds-btn { width: 100%; }
+  .si-note {
+    margin: calc(12px * var(--space-scale, 1)) 0 0;
+    font-size: 13px;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.5;
+  }
+
+  @media (max-width: 920px) {
+    .si-stage {
+      grid-template-columns: minmax(0, 1fr);
+      gap: calc(32px * var(--space-scale, 1));
+      padding-top: calc(24px * var(--space-scale, 1));
+    }
+    .si-promise .ds-display { max-width: 16ch; }
+  }
+  @media (max-width: 480px) {
+    .si-row { grid-template-columns: 32px minmax(0, 1fr); }
+    .si-row .ds-badge { grid-column: 2; justify-self: start; }
+    .si-thumb { width: 32px; height: 32px; }
+  }
+}

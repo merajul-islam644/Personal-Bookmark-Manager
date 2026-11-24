@@ -1,0 +1,23 @@
+/* Ported by Studio from the agreed design .studio/designs/parts/header.html: its own CSS, as drawn, applied only inside
+   this shared part. Change nothing here; the build flattens the wrapper for every browser. */
+:where(.studio-part-header) {
+  .hdr { display: flex; align-items: center; gap: calc(16px * var(--space-scale, 1)); height: 60px; flex-wrap: nowrap; }
+  .hdr-nav { display: flex; align-items: center; gap: calc(4px * var(--space-scale, 1)); margin-left: calc(12px * var(--space-scale, 1)); }
+  .hdr .ds-brand { height: 28px; width: auto; }
+  .hdr-right { display: flex; align-items: center; gap: calc(12px * var(--space-scale, 1)); margin-left: auto; }
+  .hdr-user { display: inline-flex; align-items: center; gap: calc(8px * var(--space-scale, 1)); }
+  .hdr-user summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: calc(8px * var(--space-scale, 1)); padding: 4px 8px 4px 4px; border-radius: var(--radius); border: 1px solid transparent; }
+  .hdr-user summary::-webkit-details-marker { display: none; }
+  .hdr-user summary:hover { background: hsl(var(--muted)); }
+  .hdr-user summary:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 2px; }
+  .hdr-user summary svg { width: 16px; height: 16px; color: hsl(var(--muted-foreground)); }
+  .hdr-user-name { font-size: 14px; font-weight: 600; color: hsl(var(--foreground)); white-space: nowrap; }
+  .hdr-menu-head { padding: 10px 12px; border-bottom: 1px solid hsl(var(--border)); margin-bottom: 4px; }
+  .hdr-menu-head b { display: block; font-size: 14px; color: hsl(var(--foreground)); }
+  .hdr-menu-head span { display: block; font-size: 13px; color: hsl(var(--muted-foreground)); margin-top: 2px; }
+  .hdr-narrow-list { padding: 4px; min-width: 220px; }
+  .hdr-narrow-list .ds-theme-switch { margin: 8px auto 4px; }
+  @media (max-width: 760px) {
+    .hdr-user-name { display: none; }
+  }
+}
