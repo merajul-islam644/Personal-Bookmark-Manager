@@ -10,5 +10,11 @@
   },
   "localization": {
     "dictionaries": "blocks/localization"
+  },
+  "repo": {
+    "branch": "dev",
+    "fullName": "merajul-islam644/Personal-Bookmark-Manager",
+    "provider": "github",
+    "url": "https://github.com/merajul-islam644/Personal-Bookmark-Manager"
   }
 }
