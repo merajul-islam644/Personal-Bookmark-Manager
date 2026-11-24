@@ -64,5 +64,6 @@
   "common.error": "Etwas ist schiefgelaufen",
   "bookmarks.folderCreated": "Ordner {name} erstellt.",
   "signIn.buttonSignUp": "Anmelden oder Konto erstellen",
-  "signIn.noteSignUp": "Ein Konto erstellen, ein neues Passwort und ein vergessenes Passwort finden auf der Anmeldeseite statt. Dieselbe Anmeldung öffnet jede App in diesem Projekt."
+  "signIn.noteSignUp": "Ein Konto erstellen, ein neues Passwort und ein vergessenes Passwort finden auf der Anmeldeseite statt. Dieselbe Anmeldung öffnet jede App in diesem Projekt.",
+  "bookmarks.folderForeign": "Dieser Ordner gehört jemand anderem."
 }

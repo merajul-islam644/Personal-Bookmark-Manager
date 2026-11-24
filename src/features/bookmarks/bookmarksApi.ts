@@ -1,26 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../app/providers/AuthProvider";
 import { blocksClient } from "../../lib/blocks/client";
+import type { Bookmark, Folder } from "./bookmarkTypes";
 
-export type Bookmark = {
-  itemId?: string;
-  id?: string;
-  link?: string;
-  title?: string;
-  siteName?: string;
-  folderName?: string;
-  tags?: string[];
-  savedOn?: string;
-  createdDate?: string;
-};
-
-export type Folder = {
-  itemId?: string;
-  id?: string;
-  name?: string;
-  createdOn?: string;
-  createdDate?: string;
-};
+export type { Bookmark, Folder } from "./bookmarkTypes";
 
 const bookmarkFields = ["link", "title", "siteName", "folderName", "tags", "savedOn", "createdDate"];
 const folderFields = ["name", "createdOn", "createdDate"];

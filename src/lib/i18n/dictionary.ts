@@ -52,6 +52,7 @@ export const defaultDictionary = {
   "bookmarks.duplicateFolder": "You already have a folder called {name}.",
   "bookmarks.folderRequired": "Enter a folder name.",
   "bookmarks.folderCreated": "Folder {name} created.",
+  "bookmarks.folderForeign": "That folder belongs to someone else.",
   "bookmarks.folderFailed": "The folder couldn't be saved. Please try again.",
 
   "auth.failed": "Sign-in failed",

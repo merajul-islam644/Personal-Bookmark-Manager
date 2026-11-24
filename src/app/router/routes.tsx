@@ -4,6 +4,7 @@ import { CallbackPage } from "../../features/auth/CallbackPage";
 import { NotFoundPage } from "../../features/auth/NotFoundPage";
 import { BookmarksScreen } from "../../features/bookmarks/BookmarksScreen";
 import { SignInScreen } from "../../features/sign-in/SignInScreen";
+import { NewBookmarkScreen } from "../../features/new-bookmark/NewBookmarkScreen";
 import { useT } from "../../lib/i18n/LocalizationProvider";
 
 export function AppRouter() {
@@ -50,6 +51,14 @@ export function AppRouter() {
           notice={params.get("created") ? t("bookmarks.folderCreated", { name: params.get("created") ?? "" }) : undefined}
           onNavigate={navigate}
         />
+      </RequireAuth>
+    );
+  }
+
+  if (path === "/bookmarks/new") {
+    return (
+      <RequireAuth currentPath={path} onNavigate={navigate}>
+        <NewBookmarkScreen situation="empty" onNavigate={navigate} />
       </RequireAuth>
     );
   }

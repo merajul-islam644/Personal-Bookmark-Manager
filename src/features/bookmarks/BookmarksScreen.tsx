@@ -9,6 +9,7 @@ import { HeaderPart } from "../../app/layout/HeaderPart";
 import { blocksClient } from "../../lib/blocks/client";
 import { useT } from "../../lib/i18n/LocalizationProvider";
 import { savedAt, useBookmarks, useFolders } from "./bookmarksApi";
+import { createFolderRecord, folderNameTaken } from "./folderApi";
 import type { Bookmark } from "./bookmarksApi";
 import "./BookmarksScreen.css";
 import "./BookmarksScreen.wiring.css";
@@ -57,6 +58,7 @@ export function BookmarksScreen({ situation, onNavigate, activeFolder, notice }:
   const tagCount = new Set(bookmarks.flatMap((bookmark) => bookmark.tags ?? [])).size;
   const shown = activeFolder ? bookmarks.filter((bookmark) => bookmark.folderName === activeFolder) : bookmarks;
   const countIn = (name: string) => bookmarks.filter((bookmark) => bookmark.folderName === name).length;
+  const activeExists = !activeFolder || folders.some((folder) => folder.name === activeFolder);
 
   const resolved: BookmarksScreenSituation =
     situation ?? (bookmarksQuery.isLoading || foldersQuery.isLoading ? "loading" : bookmarks.length === 0 ? "empty" : "normal");
@@ -69,17 +71,14 @@ export function BookmarksScreen({ situation, onNavigate, activeFolder, notice }:
       setFolderError(t("bookmarks.folderRequired"));
       return;
     }
-    if (folders.some((folder) => (folder.name ?? "").toLowerCase() === name.toLowerCase())) {
-      setFolderError(t("bookmarks.duplicateFolder", { name }));
+    if (folderNameTaken(folders, name)) {
+      setFolderError(t("bookmarks.duplicateFolder", { name: `"${name}"` }));
       return;
     }
     setCreating(true);
     try {
-      const response = (await blocksClient.data.collection("Folder", { fields: ["name", "createdOn"] }).create({
-        createdOn: new Date().toISOString(),
-        name
-      })) as { errors?: unknown[] | null; acknowledged?: boolean; data?: { itemId?: string } };
-      if (response?.errors?.length || response?.acknowledged === false) {
+      const saved = await createFolderRecord(blocksClient, name);
+      if (!saved.ok) {
         throw new Error("The folder was refused.");
       }
       setFolderName("");
@@ -166,7 +165,24 @@ export function BookmarksScreen({ situation, onNavigate, activeFolder, notice }:
             </div>
           </section>
         ) : null}
-        {resolved === "normal" ? (
+        {resolved === "normal" && !activeExists ? (
+          <section data-state="empty">
+            <div className="ds-page bm-page">
+              <div className="ds-card" style={{ padding: "calc(48px * var(--space-scale, 1)) calc(24px * var(--space-scale, 1))" }}>
+                <div className="ds-empty">
+                  <span className="ds-empty-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+                      <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
+                    </svg>
+                  </span>
+                  <b style={{ color: "hsl(var(--foreground))", fontSize: "16px" }}>{t("bookmarks.folderForeign")}</b>
+                  <a href="/bookmarks" className="ds-btn ds-btn-sm" style={{ marginTop: "8px" }} onClick={goTo("/bookmarks")}>{t("bookmarks.allBookmarks")}</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
+        {resolved === "normal" && activeExists ? (
           <div>
             <div className="ds-page bm-page">
               <div className="ds-page-head bm-head">
@@ -301,6 +317,7 @@ export function BookmarksScreen({ situation, onNavigate, activeFolder, notice }:
                         </li>
                       ))}
                     </ul>
+                    {folders.length === 0 ? <p className="bm-empty-note">{t("bookmarks.emptyFolders")}</p> : null}
                     <form className="bm-newfolder" onSubmit={createFolder}>
                       <label className="ds-label" htmlFor="newfolder">{t("bookmarks.newFolder")}</label>
                       {" "}

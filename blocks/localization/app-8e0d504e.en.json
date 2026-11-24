@@ -64,5 +64,6 @@
   "notFound.title": "404",
   "bookmarks.folderCreated": "Folder {name} created.",
   "signIn.buttonSignUp": "Sign in or create an account",
-  "signIn.noteSignUp": "Creating an account, a new password and a forgotten one all happen on the sign-in page. The same sign-in opens every app in this project."
+  "signIn.noteSignUp": "Creating an account, a new password and a forgotten one all happen on the sign-in page. The same sign-in opens every app in this project.",
+  "bookmarks.folderForeign": "That folder belongs to someone else."
 }
