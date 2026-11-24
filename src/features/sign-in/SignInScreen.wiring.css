@@ -1,4 +1,4 @@
-/* Loading placeholders for the front panel. */
+/* Loading bars for the front panel rows. */
 .si-skeleton { display: inline-block; height: 12px; width: 120px; border-radius: 6px; background: hsl(var(--muted)); }
 .si-skeleton-sm { height: 10px; width: 72px; }
 .si-skeleton-badge { height: 20px; width: 56px; border-radius: 999px; }

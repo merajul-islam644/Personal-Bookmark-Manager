@@ -1,0 +1,5 @@
+/* Small states added when the save form was wired to real records. */
+:where(.studio-screen-new-bookmark) {
+  .ds-field .ds-error { font-size: 13px; color: hsl(var(--danger)); margin-top: 2px; }
+  .nb-chip-row:empty { display: none; }
+}
