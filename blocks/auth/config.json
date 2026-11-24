@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "cliVersion": "0.11.0",
+    "note": "Read-only snapshot written by 'blocks pull'. Editing it changes nothing; use the blocks <service> commands, then pull again.",
+    "pulledAt": "2026-11-24T07:12:46.441Z",
+    "readOnly": true,
+    "secretsRedacted": true,
+    "tenantId": "D26f14b9f1c604c01a164ff065c1abf39",
+    "service": "auth"
+  },
+  "data": {
+    "itemId": "6a413c18360fd3ea8d8cea25",
+    "refreshTokenValidForNumberMinutes": 30,
+    "absoluteRefreshTokenValidForNumberMinutes": 300,
+    "accessTokenValidForNumberMinutes": 15,
+    "rememberMeRefreshTokenValidForNumberMinutes": 10080,
+    "allowedGrantTypes": [
+      "authorization_code",
+      "client_credentials",
+      "refresh_token"
+    ],
+    "getNumberOfWrongAttemptsToLockTheAccount": 5,
+    "accountLockDurationInMinutes": 5,
+    "publicCertificatePath": "https://blocksprod.blob.core.windows.net/d7e5554c758541db8a18694b64ef423d/Public/935c1e5c-d96c-4123-b57f-0ff0b9aed756/b7d15b71-1539-4ac9-8e2f-1e437f9bf9ef/D26f14b9f1c604c01a164ff065c1abf39.pfx",
+    "accountActivationPath": "activate",
+    "accountVerificationPath": "verify",
+    "recoverAccountPath": "resetpassword",
+    "isOidcEnabled": false,
+    "accountActionBaseUrl": "https://dmmeuh.slsblx.com",
+    "useAccountActionBaseUrlAsDefault": true,
+    "activationUrlLifetimeInMinutes": 1440,
+    "recoverAccountUrlLifetimeInMinutes": 10,
+    "logoutOnPasswordChange": true,
+    "passwordStrengthCheckerRegex": null,
+    "passwordStrengthCheckerMessage": "",
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyMaxLength": 64,
+    "passwordPolicyRequireUppercase": false,
+    "passwordPolicyRequireLowercase": false,
+    "passwordPolicyRequireNumbers": false,
+    "passwordPolicyRequireSpecialChars": false,
+    "passwordPolicyMessage": "",
+    "collectPasswordOnActivation": true
+  }
+}

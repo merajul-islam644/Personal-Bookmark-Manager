@@ -1,0 +1,8 @@
+{
+  "schemaName": "Folder", "name": "Folder", "collectionName": "Folders", "querySchema": "Folders",
+  "schemaType": 1,
+  "fields": [
+    { "name": "name", "type": "String", "isArray": false },
+    { "name": "createdOn", "type": "DateTime", "isArray": false }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "cliVersion": "0.11.0",
+    "note": "Read-only snapshot written by 'blocks pull'. Editing it changes nothing; use the blocks <service> commands, then pull again.",
+    "pulledAt": "2026-11-24T07:12:46.441Z",
+    "readOnly": true,
+    "secretsRedacted": true,
+    "tenantId": "D26f14b9f1c604c01a164ff065c1abf39",
+    "service": "iam"
+  },
+  "data": [
+    {
+      "resourceGroup": "blocks-data",
+      "count": 67
+    },
+    {
+      "resourceGroup": "blocks-iam",
+      "count": 36
+    },
+    {
+      "resourceGroup": "localization",
+      "count": 27
+    },
+    {
+      "resourceGroup": "blocks-logic",
+      "count": 20
+    },
+    {
+      "resourceGroup": "blocks-monitor",
+      "count": 3
+    },
+    {
+      "resourceGroup": "blocks-os",
+      "count": 47
+    },
+    {
+      "resourceGroup": "blocks-release",
+      "count": 26
+    },
+    {
+      "resourceGroup": "blocks-studio",
+      "count": 29
+    }
+  ]
+}

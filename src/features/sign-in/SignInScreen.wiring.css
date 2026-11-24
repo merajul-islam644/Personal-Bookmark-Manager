@@ -1,0 +1,5 @@
+/* Loading placeholders for the front panel. */
+.si-skeleton { display: inline-block; height: 12px; width: 120px; border-radius: 6px; background: hsl(var(--muted)); }
+.si-skeleton-sm { height: 10px; width: 72px; }
+.si-skeleton-badge { height: 20px; width: 56px; border-radius: 999px; }
+.si-error { margin: 0 0 calc(8px * var(--space-scale, 1)); font-size: 13px; color: hsl(var(--danger)); }

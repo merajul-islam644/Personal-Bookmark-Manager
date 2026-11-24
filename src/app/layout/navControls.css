@@ -1,0 +1,7 @@
+.ds-menu-list > .ds-lang-list { min-width: 160px; }
+.hdr-theme { display: flex; }
+.hdr-menu-theme { display: none; }
+@media (max-width: 860px) { .hdr-theme { display: none; } .hdr-menu-theme { display: block; } }
+.hdr-theme { display: flex; }
+.hdr-menu-theme { display: none; }
+@media (max-width: 860px) { .hdr-theme { display: none; } .hdr-menu-theme { display: block; } }

@@ -74,6 +74,11 @@
     box-shadow: var(--shadow);
     overflow: visible;
   }
+  .si-panel-body .si-row > div {
+    display: grid;
+    gap: calc(6px * var(--space-scale, 1));
+  }
+  .si-row-meta { margin-top: 0; }
   .si-panel-top {
     display: flex;
     align-items: center;

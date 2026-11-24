@@ -1,0 +1,12 @@
+{
+  "schemaName": "Bookmark", "name": "Bookmark", "collectionName": "Bookmarks", "querySchema": "Bookmarks",
+  "schemaType": 1,
+  "fields": [
+    { "name": "link", "type": "String", "isArray": false },
+    { "name": "title", "type": "String", "isArray": false },
+    { "name": "siteName", "type": "String", "isArray": false },
+    { "name": "folderName", "type": "String", "isArray": false },
+    { "name": "tags", "type": "String", "isArray": true },
+    { "name": "savedOn", "type": "DateTime", "isArray": false }
+  ]
+}

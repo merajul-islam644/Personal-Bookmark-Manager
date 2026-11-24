@@ -1,0 +1,7 @@
+/* Runtime wires added to the ported bookmarks screen: list from records, folder rail and states. */
+:where(.studio-screen-bookmarks) {
+  .bm-item .bm-link { cursor: pointer; }
+  .bm-form-error { font-size: 13px; color: hsl(var(--danger)); margin: 0; }
+  .bm-empty-note { margin: 0; font-size: 13px; color: hsl(var(--muted-foreground)); }
+  .bm-load-error { margin-bottom: calc(16px * var(--space-scale, 1)); }
+}

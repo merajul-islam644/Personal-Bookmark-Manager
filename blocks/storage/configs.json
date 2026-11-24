@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "cliVersion": "0.11.0",
+    "note": "Read-only snapshot written by 'blocks pull'. Editing it changes nothing; use the blocks <service> commands, then pull again.",
+    "pulledAt": "2026-11-24T07:12:46.441Z",
+    "readOnly": true,
+    "secretsRedacted": true,
+    "tenantId": "D26f14b9f1c604c01a164ff065c1abf39",
+    "service": "storage"
+  },
+  "data": [
+    {
+      "name": "Default",
+      "storageStrategy": "Azure",
+      "cloudStorageRegionEndPoint": null,
+      "host": null,
+      "port": null,
+      "userName": null,
+      "remoteBasePath": null,
+      "uploadUrlExpirySeconds": null,
+      "downloadUrlExpirySeconds": null,
+      "maxFileSizeInBytes": null,
+      "uploadCompletionRequiredFor": null,
+      "connectionStringStatus": "active",
+      "secretKeyStatus": "none",
+      "accessKeyStatus": "none",
+      "passwordStatus": "none",
+      "sftpSecretKeyStatus": "none",
+      "itemId": "8a640ef1-9c2c-428c-a96b-84a47ed1b28c",
+      "createdDate": "2026-11-24T05:55:09.451Z",
+      "lastUpdatedDate": "2026-11-24T05:55:09.451Z",
+      "createdBy": "1f06d48c-8093-44bf-9af6-4bad57855ac6",
+      "language": null,
+      "lastUpdatedBy": "1f06d48c-8093-44bf-9af6-4bad57855ac6",
+      "organizationId": "",
+      "tags": []
+    }
+  ]
+}

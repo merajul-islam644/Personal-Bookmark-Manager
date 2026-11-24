@@ -1,3 +1,30 @@
 {
-  "policies": []
+  "security": [
+    { "schemaName": "Bookmark", "operation": 0, "policyType": 0, "accessLevel": 3, "fieldNames": [] },
+    { "schemaName": "Bookmark", "operation": 1, "policyType": 0, "accessLevel": 3, "fieldNames": [] },
+    { "schemaName": "Bookmark", "operation": 2, "policyType": 0, "accessLevel": 3, "fieldNames": [] },
+    { "schemaName": "Bookmark", "operation": 3, "policyType": 0, "accessLevel": 3, "fieldNames": [] },
+    { "schemaName": "Folder", "operation": 0, "policyType": 0, "accessLevel": 3, "fieldNames": [] },
+    { "schemaName": "Folder", "operation": 1, "policyType": 0, "accessLevel": 3, "fieldNames": [] },
+    { "schemaName": "Folder", "operation": 2, "policyType": 0, "accessLevel": 3, "fieldNames": [] },
+    { "schemaName": "Folder", "operation": 3, "policyType": 0, "accessLevel": 3, "fieldNames": [] }
+  ],
+  "policies": [
+    { "policyName": "Bookmark own read", "schemaName": "Bookmark", "operation": 0, "policyType": 0,
+      "ruleGroup": { "logicalOperator": 0, "rules": [{ "leftSource": 0, "leftOperand": "UserId", "operator": 0, "rightSource": 1, "rightOperand": "CreatedBy" }], "nestedGroups": [] } },
+    { "policyName": "Bookmark own write", "schemaName": "Bookmark", "operation": 1, "policyType": 0,
+      "ruleGroup": { "logicalOperator": 0, "rules": [{ "leftSource": 0, "leftOperand": "UserId", "operator": 0, "rightSource": 1, "rightOperand": "CreatedBy" }], "nestedGroups": [] } },
+    { "policyName": "Bookmark own edit", "schemaName": "Bookmark", "operation": 2, "policyType": 0,
+      "ruleGroup": { "logicalOperator": 0, "rules": [{ "leftSource": 0, "leftOperand": "UserId", "operator": 0, "rightSource": 1, "rightOperand": "CreatedBy" }], "nestedGroups": [] } },
+    { "policyName": "Bookmark own delete", "schemaName": "Bookmark", "operation": 3, "policyType": 0,
+      "ruleGroup": { "logicalOperator": 0, "rules": [{ "leftSource": 0, "leftOperand": "UserId", "operator": 0, "rightSource": 1, "rightOperand": "CreatedBy" }], "nestedGroups": [] } },
+    { "policyName": "Folder own read", "schemaName": "Folder", "operation": 0, "policyType": 0,
+      "ruleGroup": { "logicalOperator": 0, "rules": [{ "leftSource": 0, "leftOperand": "UserId", "operator": 0, "rightSource": 1, "rightOperand": "CreatedBy" }], "nestedGroups": [] } },
+    { "policyName": "Folder own write", "schemaName": "Folder", "operation": 1, "policyType": 0,
+      "ruleGroup": { "logicalOperator": 0, "rules": [{ "leftSource": 0, "leftOperand": "UserId", "operator": 0, "rightSource": 1, "rightOperand": "CreatedBy" }], "nestedGroups": [] } },
+    { "policyName": "Folder own edit", "schemaName": "Folder", "operation": 2, "policyType": 0,
+      "ruleGroup": { "logicalOperator": 0, "rules": [{ "leftSource": 0, "leftOperand": "UserId", "operator": 0, "rightSource": 1, "rightOperand": "CreatedBy" }], "nestedGroups": [] } },
+    { "policyName": "Folder own delete", "schemaName": "Folder", "operation": 3, "policyType": 0,
+      "ruleGroup": { "logicalOperator": 0, "rules": [{ "leftSource": 0, "leftOperand": "UserId", "operator": 0, "rightSource": 1, "rightOperand": "CreatedBy" }], "nestedGroups": [] } }
+  ]
 }
